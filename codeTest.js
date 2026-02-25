@@ -116,5 +116,38 @@ function solution(numbers) {
 
     return answer;
 }
-numbers = [6, 10, 2]
-solution(numbers) 
+// numbers = [6, 10, 2]
+// solution(numbers) 
+
+///
+function findCategoryPath(categories, targetId) {
+  for (const category of categories) {
+    if (category.id === targetId) {
+      return category.name;
+    }
+
+    if (category.children && category.children.length > 0) {
+      const childPath = findCategoryPath(category.children, targetId);
+
+      if (childPath) {
+        return `${category.name} > ${childPath}`;
+      }
+    }
+  }
+
+  return "";
+}
+
+// 테스트 데이터
+const categories = [
+  {
+    id: 1, name: "가전", children: [
+      { id: 2, name: "주방가전", children: [{ id: 3, name: "냉장고" }] }
+    ]
+  },
+  { id: 4, name: "의류", children: [{ id: 5, name: "상의" }] }
+];
+
+console.log(findCategoryPath(categories, 3)); // 출력: 가전 > 주방가전 > 냉장고
+
+//DFS알고리즘
