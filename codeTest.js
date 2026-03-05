@@ -1,12 +1,12 @@
 function solution(nums) {
-    var answer = 0;
-    var newNums = new Set(nums)
-    newNums.forEach((i) => {
-        if(nums.length / 2 != answer){
-            answer++
-        }
-    })
-    return answer;
+  var answer = 0;
+  var newNums = new Set(nums);
+  newNums.forEach((i) => {
+    if (nums.length / 2 != answer) {
+      answer++;
+    }
+  });
+  return answer;
 }
 // nums = [3,3,3,2,2,2];
 // solution(nums)
@@ -14,26 +14,26 @@ function solution(nums) {
 //해시관련 문제
 
 function solution(a, b) {
-    var answer = '';
-    var day = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
-    var date = new Date(`2016, ${a}, ${b}`);
-    return answer;
+  var answer = "";
+  var day = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+  var date = new Date(`2016, ${a}, ${b}`);
+  return answer;
 }
 
-// a = 5 
+// a = 5
 // b = 24
 // solution(a, b)
 
 //연습문제 1
 
 function solution(s) {
-    var answer = '';
-    if(s.length % 2 === 0){
-       answer = s.slice(s.length / 2 - 1, s.length / 2 + 1)
-    }else{
-        answer = s.slice(s.length / 2, s.length / 2 + 1)
-    }
-    return answer;
+  var answer = "";
+  if (s.length % 2 === 0) {
+    answer = s.slice(s.length / 2 - 1, s.length / 2 + 1);
+  } else {
+    answer = s.slice(s.length / 2, s.length / 2 + 1);
+  }
+  return answer;
 }
 
 // s = "abde"
@@ -42,18 +42,18 @@ function solution(s) {
 //연습문제2
 
 function solution(arr, divisor) {
-    var answer = [];
-    arr.map((v) =>{
-        if(v % divisor == 0 ){
-            answer.push(v)
-        }
-    })
+  var answer = [];
+  arr.map((v) => {
+    if (v % divisor == 0) {
+      answer.push(v);
+    }
+  });
 
-    if(answer.length == 0) answer.push(-1);
+  if (answer.length == 0) answer.push(-1);
 
-    return answer.sort(function(a,b){
-        return a- b;
-    });
+  return answer.sort(function (a, b) {
+    return a - b;
+  });
 }
 
 // arr = [5, 9, 7]
@@ -64,11 +64,11 @@ function solution(arr, divisor) {
 //연습문제3
 
 function solution(a, b) {
-    var answer = 0;
-    for(var i = Math.min(a,b); i <= Math.max(a,b) ; i++){
-        answer+= i
-    }
-    return answer;
+  var answer = 0;
+  for (var i = Math.min(a, b); i <= Math.max(a, b); i++) {
+    answer += i;
+  }
+  return answer;
 }
 
 // a= 3
@@ -78,14 +78,13 @@ function solution(a, b) {
 //연습문제4
 
 function solution(strings, n) {
-    return strings.sort(function(a,b){
-        if(a[n] === b[n]){
-              return a.localeCompare(b)
-        }else{
-              return a[n].localeCompare(b[n])
-        }
-      
-    });
+  return strings.sort(function (a, b) {
+    if (a[n] === b[n]) {
+      return a.localeCompare(b);
+    } else {
+      return a[n].localeCompare(b[n]);
+    }
+  });
 }
 // strings = ["sun", "bed", "car"]
 // n = 1
@@ -93,31 +92,28 @@ function solution(strings, n) {
 
 //연습문제 5
 function solution(numbers) {
-    var answer = '';
-    var result = []
-    function dfs(current, remaining) {
-        result.push(Number(remaining.join("")));
-        // console.log(result)
+  var answer = "";
+  var result = [];
+  function dfs(current, remaining) {
+    result.push(Number(remaining.join("")));
+    // console.log(result)
 
-        for (let i = 0; i < remaining.length; i++) {
-            var next = [...remaining];
-            console.log(next)
+    for (let i = 0; i < remaining.length; i++) {
+      var next = [...remaining];
+      console.log(next)[(next[1], next[2])] = [next[2], next[1]];
+      // var picked = next.splice(i, 1);
+      console.log(next);
 
-            [next[1], next[2]] = [next[2] , next[1]];
-            // var picked = next.splice(i, 1);
-            console.log(next)
-            
-
-            // dfs([...current, ...picked], next);
-        }
+      // dfs([...current, ...picked], next);
     }
-    dfs([], numbers);
-    // console.log("result", result)
+  }
+  dfs([], numbers);
+  // console.log("result", result)
 
-    return answer;
+  return answer;
 }
 // numbers = [6, 10, 2]
-// solution(numbers) 
+// solution(numbers)
 
 ///
 function findCategoryPath(categories, targetId) {
@@ -141,13 +137,69 @@ function findCategoryPath(categories, targetId) {
 // 테스트 데이터
 const categories = [
   {
-    id: 1, name: "가전", children: [
-      { id: 2, name: "주방가전", children: [{ id: 3, name: "냉장고" }] }
-    ]
+    id: 1,
+    name: "가전",
+    children: [
+      { id: 2, name: "주방가전", children: [{ id: 3, name: "냉장고" }] },
+    ],
   },
-  { id: 4, name: "의류", children: [{ id: 5, name: "상의" }] }
+  { id: 4, name: "의류", children: [{ id: 5, name: "상의" }] },
 ];
 
-console.log(findCategoryPath(categories, 3)); // 출력: 가전 > 주방가전 > 냉장고
+// console.log(findCategoryPath(categories, 3)); // 출력: 가전 > 주방가전 > 냉장고
 
 //DFS알고리즘
+
+function solution(s) {
+  var Ylist = 0;
+  var Plist = 0;
+
+  for (var i = 0; i < s.length; i++) {
+    if (s[i].toLowerCase() == "y" || s[i].toLowerCase() == "p") {
+      if (s[i].toLowerCase() == "y") {
+        Ylist++;
+      } else {
+        Plist++;
+      }
+    }
+  }
+  return ansYlist == Plist ? true : false;
+}
+// s = "pPoooyY";
+// solution(s);
+
+//연습문제
+
+function solution(s) {
+  var answer = "";
+  var Sspl = s.split("");
+  for (var i = 0; i < Sspl.length; i++) {
+    Sspl[i] = Sspl[i].charCodeAt();
+  }
+  Sspl.sort((a, b) => b - a);
+  Sspl.forEach((v, i) => {
+    answer += String.fromCharCode(v);
+  });
+
+  return answer;
+}
+
+// s = "Zbcdefg";
+// solution(s);
+
+//연습문제
+
+function solution(n) {
+  var answer = 0;
+  for (var i = 1; i <= n; i++) {
+    if (n % i == 1) {
+      answer = answer == 0 ? (answer = i) : answer;
+    }
+  }
+  return answer;
+}
+
+n = 10;
+solution(n);
+
+//연습문제
