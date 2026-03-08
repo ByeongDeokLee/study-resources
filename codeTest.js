@@ -199,7 +199,67 @@ function solution(n) {
   return answer;
 }
 
-n = 10;
-solution(n);
+// n = 10;
+// solution(n);
 
 //연습문제
+
+function solution(s) {
+  return (s.length === 4 || s.length === 6) && /^[0-9]+$/.test(s);
+}
+// s = "a234";
+// solution(s);
+
+//연습문제
+
+function solution(seoul) {
+  var answer = 0;
+
+  seoul.forEach((v, i) => {
+    if (v == "Kim") {
+      answer = i;
+    }
+  });
+  return "김서방은 " + answer + "에 있다";
+}
+// seoul = ["Jane", "Kim"];
+// solution(seoul);
+
+//연습문제
+
+function solution(n) {
+  const arr = new Array(n + 1).fill(true);
+  arr[0] = arr[1] = false;
+
+  for (let i = 2; i * i <= n; i++) {
+    if (arr[i]) {
+      for (let j = i * i; j <= n; j += i) {
+        arr[j] = false;
+      }
+    }
+  }
+
+  return arr.filter((v) => v).length;
+}
+
+// n = 10;
+// solution(n);
+
+//연습문제
+
+function solution(n) {
+  var answer = "";
+
+  for (var i = 0; i < n; i++) {
+    if (i % 2 === 0) {
+      answer += "수";
+    } else {
+      answer += "박";
+    }
+  }
+
+  return answer;
+}
+
+n = 10;
+solution(n);
