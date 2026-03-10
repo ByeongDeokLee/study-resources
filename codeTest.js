@@ -261,5 +261,43 @@ function solution(n) {
   return answer;
 }
 
-n = 10;
-solution(n);
+// n = 10;
+// solution(n);
+
+//연습문제ㅐ
+function solution(s) {
+  var answer = 0;
+  return Number(s);
+}
+
+s = "1234";
+solution(s);
+
+//연습문제
+function solution(s, n) {
+  var answer = "";
+
+  answer = s
+    .split("")
+    .map((v) => {
+      if (v === " ") return " ";
+
+      let code = v.charCodeAt();
+
+      if (code >= 65 && code <= 90) {
+        // 대문자
+        return String.fromCharCode(((code - 65 + n) % 26) + 65);
+      } else {
+        // 소문자
+        return String.fromCharCode(((code - 97 + n) % 26) + 97);
+      }
+    })
+    .join("");
+
+  return answer;
+}
+
+s = "AB";
+n = 1;
+
+solution(s, n);
